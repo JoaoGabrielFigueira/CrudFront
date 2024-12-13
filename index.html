@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Body Builders</title>
+    <script src="app.js"></script>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body onload="carregarClientes(); carregarAcademias(); carregarEstilos();">
+    <h1>Body Builders</h1>
+    <form name="form-busca" id="form-busca" onsubmit="return false">
+        <input type="search" name="busca" id="busca" onkeyup="carregarClientes()" />
+    </form>
+    <button onclick="adicionar()">Adicionar</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Academia</th>
+                <th>Estilo</th>
+                <th>CPF</th>
+                <th>Nome</th>
+                <th>Peso</th>
+                <th>Altura</th>
+                <th>Data de Nascimento</th>
+                <th>Sapato</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+
+    <div id="modal">
+        <button onclick="ocultarModal()">Fechar</button>
+        
+        <div id="pagination">
+            <span id="pag-1">Academia</span>
+            <span id="pag-2">Estilo</span>
+            <span id="pag-3">BodyBuilder</span>
+        </div>
+        <form onsubmit="return salvar()">
+            <!-- Passo 1: Academia -->
+            <div id="step1" class="step">
+                <h2>Selecione a Academia</h2>
+                    <div class="form-group">
+                        <label>Nome da academia</label>
+                        <input type="text" name="nomeAcademia" id="nomeAcademia" />
+                    </div>
+                    <div class="form-group">
+                        <label>Endereço</label>
+                        <input type="text" name="endereço" id="endereço" />
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="text" name="telefone" id="telefone" />
+                    </div>
+                <button type="button" onclick="proximoPasso()">Próximo</button>
+            </div>
+            <!-- Passo 2: Estilo -->
+            <div id="step2" class="step" style="display: none;">
+                <h2>Selecione o Estilo</h2>
+                    <div class="form-group">
+                        <label>nome</label>
+                        <input type="text" name="categoria" id="categoria" />
+                    </div>
+                <button type="button" onclick="passoAnterior()">Voltar</button>
+                <button type="button" onclick="proximoPasso()">Próximo</button>
+            </div>
+            <!-- Passo 3: BodyBuilder -->
+            <div id="step3" class="step" style="display: none;">
+            <h2>Informações do BodyBuilder</h2>
+
+            <div class="form-group">
+                <label>CPF</label>
+                <input type="text" name="cpf" id="cpf" />
+            </div>
+            <div class="form-group">
+                <label>Nome</label>
+                <input type="text" name="nome" id="nome" />
+            </div>
+            <div class="form-group">
+                <label>Peso</label>
+                <input type="number" name="peso" id="peso" />
+            </div>
+            <div class="form-group">
+                <label>Altura</label>
+                <input type="text" name="altura" id="altura" />
+            </div>
+            <div class="form-group">
+                <label>Data de Nascimento</label>
+                <input type="date" name="dataNascimento" id="dataNascimento" />
+            </div>
+            <div class="form-group">
+                <label>Tamanho do Sapato</label>
+                <input type="number" name="sapato" id="sapato" />
+            </div>
+            <div class="form-group">
+                <label>Academia</label>
+                <select id="academia"></select>
+            </div>
+            <div class="form-group">
+                <label>Estilo</label>
+                <select id="estilo"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" name="enviar" value="Salvar" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>
